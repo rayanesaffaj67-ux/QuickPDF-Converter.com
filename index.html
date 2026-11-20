@@ -45,17 +45,28 @@
     .features{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:24px}
     .feature{background:#fff;border:1px solid var(--line);border-radius:14px;padding:17px;text-align:center}
     .feature b{display:block;font-size:13px;margin:7px 0 4px}.feature span{font-size:11px;color:var(--muted)}
-    footer{text-align:center;padding:24px;color:var(--muted);font-size:12px}
+    footer{text-align:center;padding:25px 15px;margin-top:40px;border-top:1px solid #ddd;font-family:Arial,sans-serif;color:var(--muted);font-size:12px}
+    footer a{color:var(--blue);text-decoration:none}
+    footer a:hover{text-decoration:underline}
+    .content-section{max-width:760px;margin:40px auto;padding:0 20px;line-height:1.7;font-family:inherit}
     @media(max-width:600px){main{margin:35px auto 45px}.panel{padding:16px}.drop{padding:30px 12px}.features{grid-template-columns:1fr}.convert-row{flex-direction:column}.convert-row button{width:100%}.hint{display:none}}
   </style>
 </head>
 <body>
-<header><div class="nav"><div class="brand">© 2026 Free Image to PDF Converter</div><div class="free">100% Free</div></div></header>
+
+<header>
+  <div class="nav">
+    <div class="brand">Free Image to PDF Converter</div>
+    <div class="free">100% Free</div>
+  </div>
+</header>
+
 <main>
   <section class="intro">
     <h1>Convert Images to PDF</h1>
     <p>Turn your JPG and PNG images into one PDF file in seconds.<br>Free, simple, and easy to use.</p>
   </section>
+
   <section class="panel">
     <div class="drop" id="drop">
       <div class="upload-icon">↑</div>
@@ -64,31 +75,118 @@
       <label class="file-label primary" for="picker">Choose images</label>
       <input id="picker" type="file" accept="image/jpeg,image/png,image/webp" multiple>
     </div>
+
     <div class="settings">
-      <div class="setting"><label for="pageSize">PDF page size</label><select id="pageSize"><option value="a4">A4</option><option value="letter">US Letter</option><option value="fit">Fit to image</option></select></div>
-      <div class="setting"><label for="orientation">Page orientation</label><select id="orientation"><option value="portrait">Portrait</option><option value="landscape">Landscape</option></select></div>
+      <div class="setting">
+        <label for="pageSize">PDF page size</label>
+        <select id="pageSize">
+          <option value="a4">A4</option>
+          <option value="letter">US Letter</option>
+          <option value="fit">Fit to image</option>
+        </select>
+      </div>
+      <div class="setting">
+        <label for="orientation">Page orientation</label>
+        <select id="orientation">
+          <option value="portrait">Portrait</option>
+          <option value="landscape">Landscape</option>
+        </select>
+      </div>
     </div>
-    <div class="files-head"><strong>Your images (<span id="count">0</span>)</strong><span class="hint">Use arrows to change order</span></div>
+
+    <div class="files-head">
+      <strong>Your images (<span id="count">0</span>)</strong>
+      <span class="hint">Use arrows to change order</span>
+    </div>
+
     <div id="fileList"></div>
     <div id="empty" class="empty">No images added yet.</div>
-    <div class="convert-row"><button class="primary" id="convert">Convert to PDF</button><button class="small" id="clear">Clear all</button></div>
+
+    <div class="convert-row">
+      <button class="primary" id="convert">Convert to PDF</button>
+      <button class="small" id="clear">Clear all</button>
+    </div>
+
     <div id="status" role="status" aria-live="polite"></div>
     <p class="privacy">Your images are processed in your browser and are not uploaded to a server.</p>
   </section>
+
   <section class="features">
     <div class="feature">🔒<b>Private</b><span>Files stay on your device</span></div>
     <div class="feature">⚡<b>Fast conversion</b><span>Create PDFs in seconds</span></div>
     <div class="feature">🖼️<b>Multiple images</b><span>Combine images in one PDF</span></div>
   </section>
 </main>
-<footer>© <span id="year"></span> QuickPDF · Free online image to PDF tool</footer>
+
+<footer>
+  <section class="content-section">
+    <h2>How to convert images to PDF</h2>
+    <ol>
+      <li>Click "Choose images" or drag your JPG, PNG or WEBP files onto the page.</li>
+      <li>Select the PDF page size (A4, Letter and others) and the orientation.</li>
+      <li>Reorder the images with the arrows if needed.</li>
+      <li>Click "Convert to PDF" and download your file.</li>
+    </ol>
+
+    <h2>Why use Free Image to PDF Converter?</h2>
+    <p>A PDF looks the same on every device, keeps your pages in a fixed order and is accepted by almost every office, school and government website. Sending one PDF is easier than attaching a dozen separate pictures. Our tool is free, needs no account, and adds no watermark.</p>
+
+    <h2>Private and secure</h2>
+    <p>Your images are processed inside your browser and are never uploaded to a server, so sensitive documents such as IDs, contracts and receipts stay on your device. Read our <a href="privacy-policy.html">Privacy Policy</a> for details.</p>
+
+    <h2>Tips for a better PDF</h2>
+    <ul>
+      <li>Photograph documents in good light, holding the camera straight above the page.</li>
+      <li>Name your files 1, 2, 3 before adding them if you want a predictable page order.</li>
+      <li>Use portrait for documents and landscape for wide images such as screenshots.</li>
+      <li>Check the size limit of the website where you will upload the PDF.</li>
+    </ul>
+
+    <h2>Specific converters</h2>
+    <p>Need a dedicated guide? See our <a href="/jpg-to-pdf">JPG to PDF</a> and <a href="/png-to-pdf">PNG to PDF</a> pages.</p>
+
+    <h2>Frequently asked questions</h2>
+    <h3>Is it really free?</h3>
+    <p>Yes. There is no sign-up, no watermark and no limit on conversions.</p>
+
+    <h3>Are my images uploaded to a server?</h3>
+    <p>No. The conversion runs in your browser, so your images stay on your device.</p>
+
+    <h3>Can I combine several images into one PDF?</h3>
+    <p>Yes. Add as many images as you like, reorder them, and they are merged into one PDF, one image per page.</p>
+
+    <h3>Which formats are supported?</h3>
+    <p>JPG, PNG and WEBP.</p>
+
+    <h3>Does it work on my phone?</h3>
+    <p>Yes. It works in modern mobile browsers on iPhone and Android, and on Windows, Mac and Linux.</p>
+  </section>
+
+  <div>
+    <a href="about.html">About Us</a>
+    <span> | </span>
+    <a href="privacy-policy.html">Privacy Policy</a>
+    <span> | </span>
+    <a href="contact.html">Contact Us</a>
+    <span> | </span>
+    <a href="terms.html">Terms of Service</a>
+  </div>
+
+  <p style="font-size:13px;color:#777;">
+    © <span id="year"></span> Free Image to PDF Converter · Free online image to PDF tool. All Rights Reserved.
+  </p>
+</footer>
+
 <script>
   const picker=document.getElementById('picker'), drop=document.getElementById('drop');
   const list=document.getElementById('fileList'), empty=document.getElementById('empty');
   const count=document.getElementById('count'), status=document.getElementById('status');
   let files=[];
+
   document.getElementById('year').textContent=new Date().getFullYear();
+
   const formatSize=n=>n<1024*1024?(n/1024).toFixed(0)+' KB':(n/1024/1024).toFixed(1)+' MB';
+
   function addFiles(incoming){
     for(const f of incoming){
       if(!['image/jpeg','image/png','image/webp'].includes(f.type)){continue;}
@@ -97,119 +195,163 @@
     }
     render();
   }
-  picker.addEventListener('change',e=>{addFiles(e.target.files);picker.value='';});
-  ['dragenter','dragover'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.add('drag');}));
-  ['dragleave','drop'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.remove('drag');}));
+
+  picker.addEventListener('change',e=>{
+    addFiles(e.target.files);
+    picker.value='';
+  });
+
+  ['dragenter','dragover'].forEach(ev=>drop.addEventListener(ev,e=>{
+    e.preventDefault();
+    drop.classList.add('drag');
+  }));
+
+  ['dragleave','drop'].forEach(ev=>drop.addEventListener(ev,e=>{
+    e.preventDefault();
+    drop.classList.remove('drag');
+  }));
+
   drop.addEventListener('drop',e=>addFiles(e.dataTransfer.files));
+
   function render(){
-    list.innerHTML='';count.textContent=files.length;empty.style.display=files.length?'none':'block';
+    list.innerHTML='';
+    count.textContent=files.length;
+    empty.style.display=files.length?'none':'block';
+
     files.forEach((f,i)=>{
-      const row=document.createElement('div');row.className='file';
-      const img=document.createElement('img');img.className='thumb';img.alt='';img.src=URL.createObjectURL(f);
-      const info=document.createElement('div');info.className='file-info';
-      const name=document.createElement('div');name.className='file-name';name.textContent=f.name;
-      const size=document.createElement('div');size.className='file-size';size.textContent=formatSize(f.size);
+      const row=document.createElement('div');
+      row.className='file';
+
+      const img=document.createElement('img');
+      img.className='thumb';
+      img.alt='';
+      img.src=URL.createObjectURL(f);
+
+      const info=document.createElement('div');
+      info.className='file-info';
+
+      const name=document.createElement('div');
+      name.className='file-name';
+      name.textContent=f.name;
+
+      const size=document.createElement('div');
+      size.className='file-size';
+      size.textContent=formatSize(f.size);
+
       info.append(name,size);
-      const actions=document.createElement('div');actions.className='actions';
-      const up=document.createElement('button');up.className='small';up.textContent='↑';up.title='Move up';up.disabled=i===0;up.onclick=()=>{[files[i-1],files[i]]=[files[i],files[i-1]];render();};
-      const down=document.createElement('button');down.className='small';down.textContent='↓';down.title='Move down';down.disabled=i===files.length-1;down.onclick=()=>{[files[i+1],files[i]]=[files[i],files[i+1]];render();};
-      const del=document.createElement('button');del.className='small';del.textContent='×';del.title='Remove image';del.onclick=()=>{files.splice(i,1);render();};
-      actions.append(up,down,del);row.append(img,info,actions);list.append(row);
+
+      const actions=document.createElement('div');
+      actions.className='actions';
+
+      const up=document.createElement('button');
+      up.className='small';
+      up.textContent='↑';
+      up.title='Move up';
+      up.disabled=i===0;
+      up.onclick=()=>{
+        [files[i-1],files[i]]=[files[i],files[i-1]];
+        render();
+      };
+
+      const down=document.createElement('button');
+      down.className='small';
+      down.textContent='↓';
+      down.title='Move down';
+      down.disabled=i===files.length-1;
+      down.onclick=()=>{
+        [files[i+1],files[i]]=[files[i],files[i+1]];
+        render();
+      };
+
+      const del=document.createElement('button');
+      del.className='small';
+      del.textContent='×';
+      del.title='Remove image';
+      del.onclick=()=>{
+        files.splice(i,1);
+        render();
+      };
+
+      actions.append(up,down,del);
+      row.append(img,info,actions);
+      list.append(row);
     });
   }
-  document.getElementById('clear').onclick=()=>{files=[];render();status.textContent='';};
+
+  document.getElementById('clear').onclick=()=>{
+    files=[];
+    render();
+    status.textContent='';
+  };
+
   document.getElementById('convert').onclick=async()=>{
-    if(!files.length){status.textContent='Please add at least one image first.';return;}
-    if(!window.jspdf){status.textContent='Could not load the PDF library. Check your internet connection and try again.';return;}
-    const btn=document.getElementById('convert');btn.disabled=true;status.textContent='Preparing your PDF...';
+    if(!files.length){
+      status.textContent='Please add at least one image first.';
+      return;
+    }
+
+    if(!window.jspdf){
+      status.textContent='Could not load the PDF library. Check your internet connection and try again.';
+      return;
+    }
+
+    const btn=document.getElementById('convert');
+    btn.disabled=true;
+    status.textContent='Preparing your PDF...';
+
     try{
       const {jsPDF}=window.jspdf;
       const size=document.getElementById('pageSize').value;
       const orientation=document.getElementById('orientation').value;
       let pdf=null;
+
       for(let i=0;i<files.length;i++){
         status.textContent=`Adding image ${i+1} of ${files.length}...`;
+
         const data=await new Promise((resolve,reject)=>{
-          const reader=new FileReader();reader.onload=()=>resolve(reader.result);reader.onerror=reject;reader.readAsDataURL(files[i]);
+          const reader=new FileReader();
+          reader.onload=()=>resolve(reader.result);
+          reader.onerror=reject;
+          reader.readAsDataURL(files[i]);
         });
+
         const image=await new Promise((resolve,reject)=>{
-          const im=new Image();im.onload=()=>resolve(im);im.onerror=reject;im.src=data;
+          const im=new Image();
+          im.onload=()=>resolve(im);
+          im.onerror=reject;
+          im.src=data;
         });
+
         const fit=size==='fit';
         const pageOrientation=fit?(image.width>=image.height?'landscape':'portrait'):orientation;
         const format=fit?[image.width*0.264583,image.height*0.264583]:size;
-        if(!pdf)pdf=new jsPDF({orientation:pageOrientation,unit:fit?'mm':'mm',format});
-        else pdf.addPage(format,fit?pageOrientation:orientation);
-        const pw=pdf.internal.pageSize.getWidth(),ph=pdf.internal.pageSize.getHeight();
+
+        if(!pdf){
+          pdf=new jsPDF({orientation:pageOrientation,unit:'mm',format});
+        }else{
+          pdf.addPage(format,fit?pageOrientation:orientation);
+        }
+
+        const pw=pdf.internal.pageSize.getWidth();
+        const ph=pdf.internal.pageSize.getHeight();
         const ratio=Math.min(pw/image.width,ph/image.height);
-        const w=image.width*ratio,h=image.height*ratio;
+        const w=image.width*ratio;
+        const h=image.height*ratio;
+
         pdf.addImage(data,files[i].type==='image/png'?'PNG':'JPEG',(pw-w)/2,(ph-h)/2,w,h,undefined,'FAST');
       }
-      pdf.save('images-to-pdf.pdf');status.textContent='Your PDF is ready and has been downloaded.';
-    }catch(err){status.textContent='Something went wrong. Try using smaller images or another image format.';}
-    finally{btn.disabled=false;}
+
+      pdf.save('images-to-pdf.pdf');
+      status.textContent='Your PDF is ready and has been downloaded.';
+    }catch(err){
+      status.textContent='Something went wrong. Try using smaller images or another image format.';
+    }finally{
+      btn.disabled=false;
+    }
   };
+
   render();
 </script>
-
-<footer style="
-  text-align:center;
-  padding:25px 15px;
-  margin-top:40px;
-  border-top:1px solid #ddd;
-  font-family:Arial,sans-serif;
-">
-  <section style="max-width:760px;margin:40px auto;padding:0 20px;line-height:1.7;font-family:inherit">
-  <h2>How to convert images to PDF</h2>
-  <ol>
-    <li>Click "Choose images" or drag your JPG, PNG or WEBP files onto the page.</li>
-    <li>Select the PDF page size (A4, Letter and others) and the orientation.</li>
-    <li>Reorder the images with the arrows if needed.</li>
-    <li>Click "Convert to PDF" and download your file.</li>
-  </ol>
-
-  <h2>Why use Free Image to PDF Converter?</h2>
-  <p>A PDF looks the same on every device, keeps your pages in a fixed order and is accepted by almost every office, school and government website. Sending one PDF is easier than attaching a dozen separate pictures. Our tool is free, needs no account, and adds no watermark.</p>
-
-  <h2>Private and secure</h2>
-  <p>Your images are processed inside your browser and are never uploaded to a server, so sensitive documents such as IDs, contracts and receipts stay on your device. Read our <a href="/privacy-policy">Privacy Policy</a> for details.</p>
-
-  <h2>Tips for a better PDF</h2>
-  <ul>
-    <li>Photograph documents in good light, holding the camera straight above the page.</li>
-    <li>Name your files 1, 2, 3 before adding them if you want a predictable page order.</li>
-    <li>Use portrait for documents and landscape for wide images such as screenshots.</li>
-    <li>Check the size limit of the website where you will upload the PDF.</li>
-  </ul>
-
-  <h2>Specific converters</h2>
-  <p>Need a dedicated guide? See our <a href="/jpg-to-pdf">JPG to PDF</a> and <a href="/png-to-pdf">PNG to PDF</a> pages.</p>
-
-  <h2>Frequently asked questions</h2>
-  <h3>Is it really free?</h3>
-  <p>Yes. There is no sign-up, no watermark and no limit on conversions.</p>
-  <h3>Are my images uploaded to a server?</h3>
-  <p>No. The conversion runs in your browser, so your images stay on your device.</p>
-  <h3>Can I combine several images into one PDF?</h3>
-  <p>Yes. Add as many images as you like, reorder them, and they are merged into one PDF, one image per page.</p>
-  <h3>Which formats are supported?</h3>
-  <p>JPG, PNG and WEBP.</p>
-  <h3>Does it work on my phone?</h3>
-  <p>Yes. It works in modern mobile browsers on iPhone and Android, and on Windows, Mac and Linux.</p>
-</section>
-  <a href="about.html">About Us</a>
-  <span> | </span>
-  <a href="privacy-policy.html">Privacy Policy</a>
-  <span> | </span>
-  <a href="contact.html">Contact Us</a>
-  <span> | </span>
-  <a href="terms.html">Terms of Service</a>
-  <p style="font-size:13px;color:#777;">
-    © 2026 All Rights Reserved.
-  </p>
-</footer>
-</body>
-</html>
 
 </body>
 </html>

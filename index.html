@@ -3,8 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Convert JPG and PNG images into a PDF online for free. Combine multiple images, arrange their order, and download one PDF file.">
-  <title>Free Image to PDF Converter</title>
+  <title>Free Image to PDF Converter - JPG, PNG, WEBP to PDF Online</title>
+  <meta name="description" content="Convert JPG, PNG and WEBP images to PDF online for free. Combine multiple images into one PDF, reorder pages, no sign-up. Your files never leave your browser.">
+  <link rel="canonical" href="https://freeimagetopdfconverter.org/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Free Image to PDF Converter">
+  <meta property="og:description" content="Convert JPG, PNG and WEBP images to PDF online for free. Private, fast, no sign-up.">
+  <meta property="og:url" content="https://freeimagetopdfconverter.org/">
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
@@ -12,13 +17,26 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8742930578659600"
        crossorigin="anonymous"></script>
 
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"Is it really free?","acceptedAnswer":{"@type":"Answer","text":"Yes. There is no sign-up, no watermark and no limit on conversions."}},
+  {"@type":"Question","name":"Are my images uploaded to a server?","acceptedAnswer":{"@type":"Answer","text":"No. The conversion runs in your browser, so your images stay on your device."}},
+  {"@type":"Question","name":"Can I combine several images into one PDF?","acceptedAnswer":{"@type":"Answer","text":"Yes. Add as many images as you like, reorder them, and they are merged into one PDF, one image per page."}},
+  {"@type":"Question","name":"Which formats are supported?","acceptedAnswer":{"@type":"Answer","text":"JPG, PNG and WEBP."}},
+  {"@type":"Question","name":"Does it work on my phone?","acceptedAnswer":{"@type":"Answer","text":"Yes. It works in modern mobile browsers on iPhone and Android, and on Windows, Mac and Linux."}}
+  ]}
+  </script>
+
   <style>
     :root{--ink:#172033;--muted:#65718a;--blue:#315efb;--line:#e5eaf3;--bg:#f5f7fc}
     *{box-sizing:border-box}
     body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
-    header{height:72px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center}
-    .nav{width:min(1050px,92%);margin:auto;display:flex;align-items:center;justify-content:space-between}
-    .brand{font-weight:800;font-size:20px;letter-spacing:-.5px}.brand span{color:var(--blue)}
+    header{min-height:72px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center}
+    .nav{width:min(1050px,92%);margin:auto;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:10px 0}
+    .brand{font-weight:800;font-size:20px;letter-spacing:-.5px;color:var(--ink);text-decoration:none}
+    .nav-links{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+    .nav-links a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:600}
+    .nav-links a:hover{color:var(--blue)}
     .free{font-size:13px;color:#18794e;background:#e9f8f0;padding:7px 11px;border-radius:20px;font-weight:700}
     main{width:min(850px,92%);margin:55px auto 70px}
     .intro{text-align:center;margin-bottom:30px}
@@ -29,7 +47,7 @@
     .drop.drag{border-color:var(--blue);background:#f0f4ff}
     .upload-icon{width:54px;height:54px;border-radius:16px;background:#edf2ff;color:var(--blue);display:grid;place-items:center;margin:0 auto 14px;font-size:26px}
     .drop h2{font-size:18px;margin:0 0 7px}.drop p{font-size:13px;color:var(--muted);margin:0 0 18px}
-    button,.file-label{border:0;border-radius:10px;padding:12px 18px;font-size:14px;font-weight:700;cursor:pointer;transition:.15s}
+    button,.file-label{border:0;border-radius:10px;padding:12px 18px;font-size:14px;font-weight:700;cursor:pointer;transition:.15s;display:inline-block}
     .primary{background:var(--blue);color:#fff}.primary:hover{background:#244bd7}
     .secondary{background:#eef2ff;color:#294fdb}.small{padding:7px 10px;font-size:12px;border:1px solid var(--line);background:#fff;color:#42506a}
     input[type=file]{display:none}
@@ -51,26 +69,42 @@
     .features{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:24px}
     .feature{background:#fff;border:1px solid var(--line);border-radius:14px;padding:17px;text-align:center}
     .feature b{display:block;font-size:13px;margin:7px 0 4px}.feature span{font-size:11px;color:var(--muted)}
-    footer{text-align:center;padding:25px 15px;margin-top:40px;border-top:1px solid #ddd;font-family:Arial,sans-serif;color:var(--muted);font-size:12px}
-    footer a{color:var(--blue);text-decoration:none}
+
+    .content-section{margin-top:48px;line-height:1.75;text-align:left}
+    .content-section h2{font-size:24px;margin:36px 0 10px;letter-spacing:-.4px}
+    .content-section h3{font-size:17px;margin:20px 0 4px}
+    .content-section p,.content-section li{font-size:16px;color:#2b3550}
+    .content-section ol,.content-section ul{padding-left:24px}
+    .content-section a{color:var(--blue)}
+    .tool-links{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px}
+    .tool-links a{background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 16px;text-decoration:none;font-weight:700;font-size:14px}
+    .tool-links a:hover{border-color:var(--blue)}
+
+    footer{text-align:center;padding:25px 15px;margin-top:40px;border-top:1px solid #ddd;font-family:Arial,sans-serif;color:var(--muted);font-size:13px;background:#fff}
+    footer a{color:var(--blue);text-decoration:none;margin:0 6px}
     footer a:hover{text-decoration:underline}
-    .content-section{max-width:760px;margin:40px auto;padding:0 20px;line-height:1.7;font-family:inherit}
-    @media(max-width:600px){main{margin:35px auto 45px}.panel{padding:16px}.drop{padding:30px 12px}.features{grid-template-columns:1fr}.convert-row{flex-direction:column}.convert-row button{width:100%}.hint{display:none}}
+    @media(max-width:600px){main{margin:35px auto 45px}.panel{padding:16px}.drop{padding:30px 12px}.features{grid-template-columns:1fr}.convert-row{flex-direction:column}.convert-row button{width:100%}.hint{display:none}.nav-links{gap:12px}}
   </style>
 </head>
 <body>
 
 <header>
   <div class="nav">
-    <div class="brand">Free Image to PDF Converter</div>
-    <div class="free">100% Free</div>
+    <a class="brand" href="/">Free Image to PDF Converter</a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="/jpg-to-pdf">JPG to PDF</a>
+      <a href="/png-to-pdf">PNG to PDF</a>
+      <a href="/about">About</a>
+      <a href="/contact">Contact</a>
+      <span class="free">100% Free</span>
+    </nav>
   </div>
 </header>
 
 <main>
   <section class="intro">
     <h1>Convert Images to PDF</h1>
-    <p>Turn your JPG and PNG images into one PDF file in seconds.<br>Free, simple, and easy to use.</p>
+    <p>Turn your JPG, PNG and WEBP images into one PDF file in seconds.<br>Free, simple, and easy to use.</p>
   </section>
 
   <section class="panel">
@@ -122,34 +156,40 @@
     <div class="feature">⚡<b>Fast conversion</b><span>Create PDFs in seconds</span></div>
     <div class="feature">🖼️<b>Multiple images</b><span>Combine images in one PDF</span></div>
   </section>
-</main>
 
-<footer>
-  <section class="content-section">
+  <article class="content-section">
     <h2>How to convert images to PDF</h2>
     <ol>
       <li>Click "Choose images" or drag your JPG, PNG or WEBP files onto the page.</li>
-      <li>Select the PDF page size (A4, Letter and others) and the orientation.</li>
-      <li>Reorder the images with the arrows if needed.</li>
-      <li>Click "Convert to PDF" and download your file.</li>
+      <li>Select the PDF page size (A4, US Letter or Fit to image) and the orientation.</li>
+      <li>Reorder the images with the arrows, or remove any you do not need.</li>
+      <li>Click "Convert to PDF" and your file downloads automatically.</li>
     </ol>
 
     <h2>Why use Free Image to PDF Converter?</h2>
     <p>A PDF looks the same on every device, keeps your pages in a fixed order and is accepted by almost every office, school and government website. Sending one PDF is easier than attaching a dozen separate pictures. Our tool is free, needs no account, and adds no watermark.</p>
+    <p>It is useful for scanned homework, receipts and invoices, ID copies, contracts, photo albums, screenshots and anything else you need to share as a single document.</p>
 
     <h2>Private and secure</h2>
-    <p>Your images are processed inside your browser and are never uploaded to a server, so sensitive documents such as IDs, contracts and receipts stay on your device. Read our <a href="privacy-policy.html">Privacy Policy</a> for details.</p>
+    <p>Your images are processed inside your browser and are never uploaded to a server, so sensitive documents such as IDs, contracts and receipts stay on your device. Read our <a href="/privacy-policy">Privacy Policy</a> for details.</p>
+
+    <h2>Page size and orientation explained</h2>
+    <p><b>A4</b> is the standard paper size in most countries and works well for printing and emailing. <b>US Letter</b> is the standard in the United States and Canada. <b>Fit to image</b> makes every PDF page match the size of its image, which is ideal for screenshots and photos you do not want to crop or add margins to. Choose portrait for upright documents and landscape for wide images.</p>
 
     <h2>Tips for a better PDF</h2>
     <ul>
       <li>Photograph documents in good light, holding the camera straight above the page.</li>
       <li>Name your files 1, 2, 3 before adding them if you want a predictable page order.</li>
       <li>Use portrait for documents and landscape for wide images such as screenshots.</li>
-      <li>Check the size limit of the website where you will upload the PDF.</li>
+      <li>Check the size limit of the website where you will upload the PDF. Smaller photos make smaller PDFs.</li>
     </ul>
 
     <h2>Specific converters</h2>
-    <p>Need a dedicated guide? See our <a href="/jpg-to-pdf">JPG to PDF</a> and <a href="/png-to-pdf">PNG to PDF</a> pages.</p>
+    <p>Need a dedicated guide for your file type?</p>
+    <div class="tool-links">
+      <a href="/jpg-to-pdf">JPG to PDF</a>
+      <a href="/png-to-pdf">PNG to PDF</a>
+    </div>
 
     <h2>Frequently asked questions</h2>
     <h3>Is it really free?</h3>
@@ -166,16 +206,17 @@
 
     <h3>Does it work on my phone?</h3>
     <p>Yes. It works in modern mobile browsers on iPhone and Android, and on Windows, Mac and Linux.</p>
-  </section>
+  </article>
+</main>
 
+<footer>
   <div>
-    <a href="about.html">About Us</a>
-    <span> | </span>
-    <a href="privacy-policy.html">Privacy Policy</a>
-    <span> | </span>
-    <a href="contact.html">Contact Us</a>
-    <span> | </span>
-    <a href="terms.html">Terms of Service</a>
+    <a href="/jpg-to-pdf">JPG to PDF</a> |
+    <a href="/png-to-pdf">PNG to PDF</a> |
+    <a href="/about">About Us</a> |
+    <a href="/privacy-policy">Privacy Policy</a> |
+    <a href="/contact">Contact Us</a> |
+    <a href="/terms">Terms of Service</a>
   </div>
 
   <p style="font-size:13px;color:#777;">
